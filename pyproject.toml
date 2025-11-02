@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytest-ci-harness"
+version = "0.1.0"
+description = "Pytest CI helper with deterministic AI-style summaries"
+authors = [
+  {name = "CI Harness Maintainers"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+  "pytest>=7.4",
+  "pytest-json-report>=1.5",
+]
+
+[project.scripts]
+pytest-ci-harness = "pytest_ci_harness.cli:main"
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+pythonpath = ["src"]
+testpaths = ["tests"]
